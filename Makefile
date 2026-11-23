@@ -1,19 +1,19 @@
 CC := clang
 CFLAGS := -g -Wall -Werror
 
-all: myls
+all: codenames_networking
 
 clean:
 	@echo "Removing build output"
-	@rm -rf myls.dSYM myls myls.zip
+	@rm -rf codenames_networking.dSYM codenames_networking codenames_networking.zip
 
 myls: myls.c
-	$(CC) $(CFLAGS) -o myls myls.c
+	$(CC) $(CFLAGS) -o codenames_networking codenames_networking.c
 
 zip:
-	@echo "Generating myls.zip file to submit to Gradescope..."
-	@zip -q -r myls.zip . -x .git/\* .vscode/\* .clang-format .gitignore myls
-	@echo "Done. Please upload myls.zip to Gradescope."
+	@echo "Generating codenames_networking.zip file"
+	@zip -q -r codenames_networking.zip . -x .git/\* .vscode/\* .clang-format .gitignore codenames_networking
+	@echo "Done. Please upload codenames_networking.zip to Gradescope."
 
 format:
 	@echo "Reformatting source code."
