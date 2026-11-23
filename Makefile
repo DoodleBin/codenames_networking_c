@@ -1,19 +1,21 @@
 CC := clang
-CFLAGS := -g -Wall -Werror
+CFLAGS := -g -Wall -Werror -Wno-unused-function -Wno-unused-variable
+SRCS := $(wildcard *.c)
+OBJS := $(SRCS:.c=.o)
 
-all: codenames_networking
+all: codenames
 
 clean:
 	@echo "Removing build output"
-	@rm -rf codenames_networking.dSYM codenames_networking codenames_networking.zip
+	@rm -rf codenames.dSYM codenames codenames.zip
 
 myls: myls.c
-	$(CC) $(CFLAGS) -o codenames_networking codenames_networking.c
+	$(CC) $(CFLAGS) -o codenames codenames.c
 
 zip:
-	@echo "Generating codenames_networking.zip file"
-	@zip -q -r codenames_networking.zip . -x .git/\* .vscode/\* .clang-format .gitignore codenames_networking
-	@echo "Done. Please upload codenames_networking.zip to Gradescope."
+	@echo "Generating codenames.zip file"
+	@zip -q -r codenames.zip . -x .git/\* .vscode/\* .clang-format .gitignore codenames
+	@echo "Done. Please upload codenames.zip to Gradescope."
 
 format:
 	@echo "Reformatting source code."
