@@ -20,5 +20,5 @@ IncludeCategories:
     Priority: 1
 
   # Local Includes
-  - Regex: '.*'
+  - Regex: ".*"
     Priority: 2
